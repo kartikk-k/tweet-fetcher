@@ -12,6 +12,9 @@
 	"pages_build_output_dir": ".vercel/output/static",
 	"observability": {
 		"enabled": true
+	},
+	"browser": {
+		"binding": "tweet_browser"
 	}
 	/**
 	 * Smart Placement
