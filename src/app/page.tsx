@@ -8,12 +8,16 @@ export default function Home() {
   const searchParams = useSearchParams()
   const tweetId = searchParams.get('id') as string
 
+  if (!tweetId) {
+    return <div>error</div>
+  }
+
   const tweet = useTweet(tweetId)
 
   useEffect(() => {
     if (tweet.isLoading) return
     else if (tweet.data?.text) {
-      console.log(tweet.data?.text)
+      console.log(tweet.data)
     } else {
       console.log('error')
     }
@@ -24,7 +28,7 @@ export default function Home() {
   } else {
     return (
       <div id='tweet-body'>
-        {tweet.data?.text || 'error'}
+        {JSON.stringify(tweet.data) || 'error'}
       </div>
     )
   }
